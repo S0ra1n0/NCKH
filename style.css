@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+    scroll-behavior: smooth scroll;
+    font-family: 'TT Norms Pro';
+}
