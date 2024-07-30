@@ -2,12 +2,36 @@
 <html lang="vn" lang="en">
 <head>
     <title> NCKH </title>
+    <meta charset="utf-8">
     <meta name="author" content="Sorai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- This is a must have line in every HTML code file-->
-    <link rel="stylesheet" href="style.css"> <!-- link with CSS file-->
+    <link rel="stylesheet" href="style.css"> <!-- link with css file-->
+    <script src="script.js" defer></script> <!-- link with js file-->
 </head>
-<body>
+<body class="show-chatbox">
     bruh
-    <script src="script.js"></script> <!-- link with js file-->
+    <button class="chatbot-toggle">
+        <img src = "img1.png" width = 36 height = 36>
+        <img src = "img3.png" width = 36 height = 36>
+    </button>
+    <div class="chatbot">
+        <header>
+            <h2>Chatbot</h2>
+            <img src = "img3.png" width = 36 height = 36>
+        </header>
+        <ul class="chatbox">
+            <li class="chat in">
+                <!--  <span class="material-symbols-outlined">smart_toy</span>  -->
+                <img id ="ime" src = "fotor-ai-2024051911579.jpg" width = 39 height= 39>
+                <p>
+                    Hi. How can I help you?
+                </p>
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea placeholder="Enter a text..." required></textarea>
+            <img src = "img2.png" width = 20 height = 20>
+        </div>
+    </div>
 </body>
 </html>
