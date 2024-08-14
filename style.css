@@ -33,7 +33,7 @@ body {
 }
 
 .show-chatbox .chatbot-toggle {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
 }
 
 .show-chatbox .chatbot-toggle img:first-child,
@@ -120,6 +120,11 @@ body {
     border-radius: 10px 10px 0 10px;
 }
 
+.chatbot .chat p.error {
+    color: rgb(177, 23, 23);
+    background-color: #e6b9bc;
+}
+
 .chatbot .in p {
     background: #99999993;
     border-radius: 10px 10px 10px 0;
@@ -181,5 +186,9 @@ body {
 
     .chatbot header img {
         display: block;
+    }
+
+    .show-chatbox .chatbot-toggle {
+        opacity: 0;
     }
 }
