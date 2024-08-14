@@ -2,8 +2,10 @@ const chatInput = document.querySelector(".chat-input textarea")
 const sendChatBtn = document.querySelector(".chat-input img")
 const chatbox = document.querySelector(".chatbox")
 const chatboxToggle = document.querySelector(".chatbot-toggle")
+const chatboxCloseBtn = document.querySelector(".close-btn")
 
 let userMessage;
+let stopping = 0;
 const API_KEY = "sk-None-kK6eHnqeZ9BMeIdhfZFBT3BlbkFJnw8TbPbzcDhp3WqeQNff";
 
 const createChatLi = (message, className) => {
@@ -34,17 +36,20 @@ const generateResponse = (incomingChatLi) => {
     fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
         messageElement.textContent = data.choices[0].message.content;
     }).catch((error) => {
+        messageElement.classList.add('error');
         messageElement.textContent = "Oops! Something went wrong. Please try again.";
     }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
+    setTimeout(() => {stopping = 0;}, 200);
 }
 
 const handleChat = () => {
     userMessage = chatInput.value.trim();
     if(!userMessage) return;
-
+    chatInput.value = "";
+    if (stopping == 1) return;
     chatbox.appendChild(createChatLi(userMessage, "out"));
     chatbox.scrollTo(0, chatbox.scrollHeight);
-
+    stopping = 1;
     setTimeout(() => {
         const incomingChatLi = createChatLi("Thinking...", "in");
         chatbox.appendChild(incomingChatLi);
@@ -55,3 +60,4 @@ const handleChat = () => {
 
 sendChatBtn.addEventListener("click", handleChat);
 chatboxToggle.addEventListener("click", () => document.body.classList.toggle("show-chatbox"));
+chatboxCloseBtn.addEventListener("click", () => document.body.classList.remove("show-chatbox"));
